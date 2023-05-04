@@ -9,14 +9,13 @@ end
 
 to setup-patches
   ask patches [ set pcolor green ]
-
-  ask n-of 10 patches with [pcolor = green] [
+  ask n-of 30 patches with [pcolor = green] [
     set pcolor blue
   ]
 end
 
 to setup-turtles
-  create-turtles 100
+  create-turtles 1
   ask turtles [
     setxy random-xcor random-ycor
     set energy 100
@@ -25,7 +24,7 @@ to setup-turtles
 end
 
 to go
-  if ticks >= 500 or count turtles = 1 [ stop ]
+  if ticks >= 500 [ stop ]
   move-turtles
   check-death
   tick
@@ -50,26 +49,26 @@ to move-turtles
       set color red
     ]
 
-    let rival one-of other turtles in-cone 5 60
-    if rival != nobody [
-      if energy > [energy] of rival [
-        set energy energy + [energy] of rival
-        ask patch-here [  set plabel "X" ]
-        die
-      ]
-    ]
+;    let rival one-of other turtles in-cone 5 60
+;    if rival != nobody [
+;      if energy > [energy] of rival [
+;        set energy energy + [energy] of rival
+;        ask patch-here [  set plabel "X" ]
+;        die
+;      ]
+;    ]
   ]
 end
 
-to fight
-  ask turtles [
-    let opponent one-of other turtles-here
-    if opponent != nobody and energy > [energy] of opponent [
-      set energy energy + [energy] of opponent
-      ask opponent [ die ]
-    ]
-  ]
-end
+;to fight
+;  ask turtles [
+;    let opponent one-of other turtles-here
+;    if opponent != nobody and energy > [energy] of opponent [
+;      set energy energy + [energy] of opponent
+;      ask opponent [ die ]
+;    ]
+;  ]
+;end
 
 to check-death
   ask turtles [
