@@ -77,13 +77,13 @@ to setup-turtles
   set-default-shape sheep "person"
   create-sheep 10 [
     set color black
-    setxy random-xcor random-ycor
+    setxy random-pxcor random-pycor
   ]
 
 
   set-default-shape wolves "car"
   create-wolves 1 [
-    setxy -40 -40
+    setxy -30 -30
     set qtde 0
     set size 1.5
     set color yellow
@@ -96,8 +96,8 @@ to go
   if qtde = 10 [
     ask turtles [
       set color red
-      while [distance patch -40 -40 > 0.5] [
-        face patch -40 -40
+      while [distance patch -30 -30 > 0.5] [
+        face patch -30 -30
         forward 0.5
       ]
     ]
@@ -123,8 +123,8 @@ end
 GRAPHICS-WINDOW
 667
 10
-1495
-839
+1296
+640
 -1
 -1
 20.0
@@ -137,9 +137,9 @@ GRAPHICS-WINDOW
 1
 1
 1
--40
+-30
 0
--40
+-30
 0
 0
 0
