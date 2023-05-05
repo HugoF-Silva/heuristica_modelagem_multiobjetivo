@@ -1,71 +1,133 @@
+;globals [qtde]
+;
+;to setup
+;  clear-all
+;  setup-patches
+;  setup-turtles
+;  reset-ticks
+;end
+;
+;to setup-patches
+;  ask patches [ set pcolor green ]
+;
+;  ask n-of 10 patches with [pcolor = green] [
+;    set pcolor blue
+;  ]
+;end
+;
+;to setup-turtles
+;  create-turtles 1
+;  ask turtles [
+;    setxy -30 -30
+;    set qtde 0
+;    set shape "car"
+;    set size 1
+;    set color yellow
+;    face one-of neighbors4
+;  ]
+;end
+;
+;to go
+;  move-turtles
+;  if qtde = 10 [
+;    ask turtles [
+;      set color red
+;      while [distance patch -30 -30 > 0.5] [
+;        face patch -30 -30
+;        forward 0.5
+;      ]
+;    ]
+;    stop
+;  ]
+;  tick
+;end
+;
+;
+;to move-turtles
+;  ask turtles [
+;    let steps random 1
+;    face one-of neighbors4
+;    forward 1
+;
+;    if any? patches in-radius 1 with [pcolor = blue] [
+;      set qtde qtde + 1
+;      ask one-of patches in-radius 1 with [pcolor = blue] [set pcolor green]
+;    ]
+;   ]
+;end
+
+
+; Código implementando 2 grupos de agentes
 globals [qtde]
+
+breed [ sheep a-sheep ]
+breed [ wolves wolf ]
 
 to setup
   clear-all
-  setup-patches
+
+  ;setup patches
+  ask patches [ set pcolor green ]
   setup-turtles
   reset-ticks
 end
 
-to setup-patches
-  ask patches [ set pcolor green ]
-
-  ask n-of 10 patches with [pcolor = green] [
-    set pcolor blue
-  ]
-end
 
 to setup-turtles
-  create-turtles 1
-  ask turtles [
-    setxy min-pxcor min-pycor
-    set qtde 0
+  set-default-shape sheep "person"
+  create-sheep 10 [
     set color black
+    setxy random-xcor random-ycor
+  ]
+
+
+  set-default-shape wolves "car"
+  create-wolves 1 [
+    setxy -40 -40
+    set qtde 0
+    set size 1.5
+    set color yellow
     face one-of neighbors4
   ]
 end
 
 to go
   move-turtles
-  if qtde = 10 [stop]
+  if qtde = 10 [
+    ask turtles [
+      set color red
+      while [distance patch -40 -40 > 0.5] [
+        face patch -40 -40
+        forward 0.5
+      ]
+    ]
+    stop
+  ]
   tick
 end
 
+
 to move-turtles
-  ask turtles [
+  ask wolves [
     let steps random 1
     face one-of neighbors4
-    forward 2
+    forward 1
 
-    if any? patches in-radius 1 with [pcolor = blue] [
+    if any? sheep in-radius 1[
       set qtde qtde + 1
-      ask one-of patches in-radius 1 with [pcolor = blue] [set pcolor green]
+      ask one-of sheep in-radius 1 [die]
     ]
-    if qtde = 10 [
-      set color red
-      face min-one-of patches [distance myself]
-      while [pxcor != 0 or pycor != 0] [  fd 1]
-      ]
-    ]
+   ]
 end
-
-
-
-
-
-
-
-
-
 @#$#@#$#@
 GRAPHICS-WINDOW
-210
+667
 10
-1011
-422
+1495
+839
 -1
 -1
-13.0
+20.0
 1
 10
 1
@@ -75,9 +137,9 @@ GRAPHICS-WINDOW
 1
 1
 1
--30
-30
--30
+-40
+0
+-40
 0
 0
 0
@@ -86,10 +148,10 @@ ticks
 30.0
 
 BUTTON
-1125
-37
-1189
-70
+27
+205
+91
+238
 Setup
 Setup
 NIL
@@ -103,10 +165,10 @@ NIL
 1
 
 BUTTON
-1262
-38
-1325
-71
+164
+206
+227
+239
 go
 go
 T
@@ -120,10 +182,10 @@ NIL
 0
 
 MONITOR
-209
-442
-290
-487
+28
+59
+109
+104
 Tempo total
 ticks
 17
@@ -131,15 +193,46 @@ ticks
 11
 
 MONITOR
-316
-443
-516
-488
-Contagem
+27
+130
+227
+175
+Quantos de pessoas atropeladas
 qtde
 17
 1
 11
+
+MONITOR
+150
+60
+290
+105
+Km rodados
+ticks
+17
+1
+11
+
+TEXTBOX
+120
+69
+254
+94
+=
+20
+0.0
+1
+
+TEXTBOX
+316
+59
+466
+116
+A cada tick (unidade de tempo), o agente anda um bloco
+15
+0.0
+1
 
 @#$#@#$#@
 ## WHAT IS IT?
@@ -180,8 +273,10 @@ qtde
 @#$#@#$#@
 default
 true
-0
-Polygon -7500403 true true 150 5 40 250 150 205 260 250
+3
+Polygon -7500403 true false -30 335 -140 580 -30 535 80 580
+Polygon -7500403 true false 30 150
+Line -7500403 false 45 90 45 90
 
 airplane
 true
@@ -260,7 +355,10 @@ Circle -7500403 true true 0 0 300
 dot
 false
 0
-Circle -7500403 true true 90 90 120
+Polygon -7500403 true true 15 240 15 90
+Polygon -1184463 true false 15 75 15 270 255 270 255 30 15 30 15 150
+Polygon -1 true false 75 150 105 150 105 120 120 105 165 105 180 120 180 150 135 150 120 165 120 210 150 210 150 180 195 180 210 165 210 105 195 90 165 75 120 75 90 90 75 105 75 150
+Polygon -1 true false 120 225 120 240 120 240 150 240 150 225 120 225
 
 face happy
 false
