@@ -1,4 +1,4 @@
-turtles-own [energy]
+globals [qtde]
 
 to setup
   clear-all
@@ -9,7 +9,8 @@ end
 
 to setup-patches
   ask patches [ set pcolor green ]
-  ask n-of 30 patches with [pcolor = green] [
+
+  ask n-of 10 patches with [pcolor = green] [
     set pcolor blue
   ]
 end
@@ -17,67 +18,45 @@ end
 to setup-turtles
   create-turtles 1
   ask turtles [
-    setxy random-xcor random-ycor
-    set energy 100
+    setxy min-pxcor min-pycor
+    set qtde 0
     set color black
+    face one-of neighbors4
   ]
 end
 
 to go
-  if ticks >= 500 [ stop ]
   move-turtles
-  check-death
+  if qtde = 10 [stop]
   tick
 end
 
 to move-turtles
   ask turtles [
-    let steps random 10
-    right random 360
-    forward steps
-    set energy energy - steps
+    let steps random 1
+    face one-of neighbors4
+    forward 2
 
     if any? patches in-radius 1 with [pcolor = blue] [
-      set energy 100
+      set qtde qtde + 1
       ask one-of patches in-radius 1 with [pcolor = blue] [set pcolor green]
     ]
-
-    if energy < 50 [
-      set color yellow
-    ]
-    if energy < 30 [
+    if qtde = 10 [
       set color red
+      face min-one-of patches [distance myself]
+      while [pxcor != 0 or pycor != 0] [  fd 1]
+      ]
     ]
-
-;    let rival one-of other turtles in-cone 5 60
-;    if rival != nobody [
-;      if energy > [energy] of rival [
-;        set energy energy + [energy] of rival
-;        ask patch-here [  set plabel "X" ]
-;        die
-;      ]
-;    ]
-  ]
 end
 
-;to fight
-;  ask turtles [
-;    let opponent one-of other turtles-here
-;    if opponent != nobody and energy > [energy] of opponent [
-;      set energy energy + [energy] of opponent
-;      ask opponent [ die ]
-;    ]
-;  ]
-;end
 
-to check-death
-  ask turtles [
-    if energy <= 0 [
-      ask patch-here [ set plabel "X" ]
-      die
-    ]
-  ]
-end
+
+
+
+
+
+
+
 @#$#@#$#@
 GRAPHICS-WINDOW
 210
@@ -141,52 +120,23 @@ NIL
 0
 
 MONITOR
-211
-434
-354
-479
-Quantidade de agentes
-count turtles
-17
-1
-11
-
-MONITOR
-375
-435
-456
-480
+209
+442
+290
+487
 Tempo total
 ticks
 17
 1
 11
 
-PLOT
-1125
-114
-1325
-264
-Agentes
-ticks
-n° agentes
-0.0
-35.0
-0.0
-100.0
-false
-false
-"" ""
-PENS
-"default" 1.0 0 -16777216 true "" "plot count turtles"
-
 MONITOR
-482
-436
-682
-481
-Blocos de energia restantes (azul)
-patches with [pcolor = blue]
+316
+443
+516
+488
+Contagem
+qtde
 17
 1
 11
