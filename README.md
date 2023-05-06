@@ -28,4 +28,9 @@ Ao encontrar, muda a cor para vermelho e volta para a origem.
 
 # 3. Comparação
 Tendo como base as medições citadas (status quantitativo base e o tanto de km rodado -- calculado sobre o tempo passado), vemos que:
+
+![Gráficos resultados sem busca](https://github.com/HugoF-Silva/netlogo_duel_ahr/blob/main/Graficos_Desempenho/Sem-busca.jpg?raw=true)
  
+![Gráficos resultados com busca](https://github.com/HugoF-Silva/netlogo_duel_ahr/blob/main/Graficos_Desempenho/Com-busca.jpg?raw=true)
+
+
