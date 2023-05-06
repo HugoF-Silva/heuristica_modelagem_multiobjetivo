@@ -28,3 +28,4 @@ Ao encontrar, muda a cor para vermelho e volta para a origem.
 
 # 3. Comparação
 Tendo como base as medições citadas (status quantitativo base e o tanto de km rodado -- calculado sobre o tempo passado), vemos que:
+ 
