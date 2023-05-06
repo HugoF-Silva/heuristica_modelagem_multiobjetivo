@@ -29,11 +29,8 @@ Ao encontrar, muda a cor para vermelho e volta para a origem.
 # 3. Comparação
 Tendo como base as medições citadas (status quantitativo base e o tanto de km rodado -- calculado sobre o tempo passado), vemos que:
 
-Gráficos resultados sem busca:
 ![Gráficos resultados sem busca](https://github.com/HugoF-Silva/netlogo_duel_ahr/blob/main/Graficos_Desempenho/Sem-busca.jpg?raw=true)
  
-
- Gráficos resultados com busca:
 ![Gráficos resultados com busca](https://github.com/HugoF-Silva/netlogo_duel_ahr/blob/main/Graficos_Desempenho/Com-busca.jpg?raw=true)
 
-
+Podemos inferir, a partir da observação dos gráficos acima, que o comportamento do agente com objetivo é muito menos disperso, e consegue realizar seu objetivo numa média de tempo menor do que o agente reativo simples. Ou seja, implementando uma simples busca que varre o mapa, já conseguimos minimizar o ruído aleatório do problema e alcançar uma solução relativamente boa.
