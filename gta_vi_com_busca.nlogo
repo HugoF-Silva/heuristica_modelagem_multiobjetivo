@@ -1,72 +1,13 @@
-;globals [qtde]
-;
-;to setup
-;  clear-all
-;  setup-patches
-;  setup-turtles
-;  reset-ticks
-;end
-;
-;to setup-patches
-;  ask patches [ set pcolor green ]
-;
-;  ask n-of 10 patches with [pcolor = green] [
-;    set pcolor blue
-;  ]
-;end
-;
-;to setup-turtles
-;  create-turtles 1
-;  ask turtles [
-;    setxy -30 -30
-;    set qtde 0
-;    set shape "car"
-;    set size 1
-;    set color yellow
-;    face one-of neighbors4
-;  ]
-;end
-;
-;to go
-;  move-turtles
-;  if qtde = 10 [
-;    ask turtles [
-;      set color red
-;      while [distance patch -30 -30 > 0.5] [
-;        face patch -30 -30
-;        forward 0.5
-;      ]
-;    ]
-;    stop
-;  ]
-;  tick
-;end
-;
-;
-;to move-turtles
-;  ask turtles [
-;    let steps random 1
-;    face one-of neighbors4
-;    forward 1
-;
-;    if any? patches in-radius 1 with [pcolor = blue] [
-;      set qtde qtde + 1
-;      ask one-of patches in-radius 1 with [pcolor = blue] [set pcolor green]
-;    ]
-;   ]
-;end
-
-
 ; Código implementando 2 grupos de agentes
-globals [qtde]
+globals [score can-stop ç ß]
 
 breed [ sheep a-sheep ]
 breed [ wolves wolf ]
 
 to setup
+  set ß world-width
+  set ç 0
   clear-all
-
-  ;setup patches
   ask patches [ set pcolor green ]
   setup-turtles
   reset-ticks
@@ -75,7 +16,7 @@ end
 
 to setup-turtles
   set-default-shape sheep "person"
-  create-sheep 10 [
+  create-sheep num_pessoas [
     set color black
     setxy random-pxcor random-pycor
   ]
@@ -83,48 +24,67 @@ to setup-turtles
 
   set-default-shape wolves "car"
   create-wolves 1 [
-    setxy -30 -30
-    set qtde 0
+    setxy 0 0
+    set score 0
     set size 1.5
     set color yellow
     face one-of neighbors4
   ]
+
+
 end
 
 to go
-  move-turtles
-  if qtde = 10 [
-    ask turtles [
+  ifelse score = capacity [
+    ask wolves [
       set color red
-      while [distance patch -30 -30 > 0.5] [
-        face patch -30 -30
-        forward 0.5
+      ifelse xcor != 0 [
+        face patch 0 ycor
+        forward 1
+      ]  [
+        if ycor != 0 [
+          face patch xcor 0
+          forward 1
+        ]
       ]
-    ]
-    stop
   ]
+  ] [
+    move-turtles
+  ]
+  if score = capacity [
+    ask wolves [
+      if xcor = 0 and ycor = 0 [ set can-stop true ]
+  ]
+  ]
+  if can-stop = true [stop]
   tick
 end
 
 
 to move-turtles
   ask wolves [
-    let steps random 1
-    face one-of neighbors4
+    ifelse ß > 0 [
+    face patch (xcor + 1) ç
     forward 1
-
-    if any? sheep in-radius 1[
-      set qtde qtde + 1
+      set ß ß - 1
+    ] [
+      face patch xcor (ç + 1)
+      forward 1
+      set ß world-width
+      set ç ç + 1
+    ]
+    if any? sheep in-radius 1 and score < capacity [
+      set score score + 1
       ask one-of sheep in-radius 1 [die]
     ]
    ]
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
-667
-10
-1296
-640
+530
+25
+958
+454
 -1
 -1
 20.0
@@ -137,10 +97,10 @@ GRAPHICS-WINDOW
 1
 1
 1
--30
-0
--30
-0
+-10
+10
+-10
+10
 0
 0
 1
@@ -195,10 +155,10 @@ ticks
 MONITOR
 27
 130
-227
+256
 175
-Quantos de pessoas atropeladas
-qtde
+Quantidade de Pessoas Atropeladas
+score
 17
 1
 11
@@ -225,14 +185,44 @@ TEXTBOX
 1
 
 TEXTBOX
-316
-59
-466
-116
+315
+52
+465
+130
 A cada tick (unidade de tempo), o agente anda um bloco
 15
 0.0
 1
+
+SLIDER
+36
+298
+208
+331
+capacity
+capacity
+0
+100
+25.0
+1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+36
+336
+208
+369
+num_pessoas
+num_pessoas
+0
+100
+100.0
+1
+1
+NIL
+HORIZONTAL
 
 @#$#@#$#@
 ## WHAT IS IT?
@@ -585,6 +575,21 @@ NetLogo 6.3.0
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
+<experiments>
+  <experiment name="experiment" repetitions="1000" runMetricsEveryStep="true">
+    <setup>setup</setup>
+    <go>go</go>
+    <enumeratedValueSet variable="capacity">
+      <value value="10"/>
+      <value value="25"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="num_pessoas">
+      <value value="25"/>
+      <value value="50"/>
+      <value value="100"/>
+    </enumeratedValueSet>
+  </experiment>
+</experiments>
 @#$#@#$#@
 @#$#@#$#@
 default
