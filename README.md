@@ -15,4 +15,4 @@ Os integrantes do grupo variaram de acordo com a atividade, logo os alunos que c
 Legenda: <br>
 :heavy_check_mark: *Participou da atividade no nosso grupo;*<br>
 :x: *Não participou da atividade no nosso grupo;*<br>
-:curly_loop: *Atividade não era para ser entregue*<br>
+:curly_loop: *Atividade não era para ser entregue.*<br>
