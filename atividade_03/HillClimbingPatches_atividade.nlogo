@@ -44,7 +44,7 @@ to go
     ; Destaque a altura máxima e o ótimo alcançado pelos agentes
     print(word Num-climbers " Climbers")
     set alt_max_alcancada (max [pcolor] of climbers)
-    print (word "Maximum height: " alt_max_alcancada)
+    print (word "Maximum height found: " alt_max_alcancada)
     set alt_max_possivel (max [pcolor] of patches)
     print (word "Maximum height possible: " alt_max_possivel)
 
