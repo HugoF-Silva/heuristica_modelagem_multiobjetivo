@@ -1,5 +1,5 @@
 ## README
-Repositório de Atividades da Disciplina **INF0415 - HEURÍSTICA E MODELAGEM MULTIOBJETIVO (2023 .1 - TA)** ministrada pela professora **TELMA WOERLE DE LIMA SOARES**
+Repositório de Atividades da Disciplina **INF0415 - HEURÍSTICA E MODELAGEM MULTIOBJETIVO (2023 .1 - TA)** ministrada pela professora **TELMA WOERLE DE LIMA SOARES**.
 
 ### Integrantes
 Os integrantes do grupo<br> variaram de acordo com a atividade, logo os alunos que contribuiram de acordo com a atividade estão representados na tabela abaixo:
