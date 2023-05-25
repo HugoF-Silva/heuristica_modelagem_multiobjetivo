@@ -1,4 +1,4 @@
-# Atividade 01 - Agentes Inteligentes e busca não informada
+# Atividade 01 - Agentes Inteligentes e Busca Não Informada
 - 202108075 – ANDRÉ LUIS ARAÚJO DE SOUZA<br>
 - 202105848 – HUGO FERNANDES SILVA<br>
 - 202105865 – RAFAEL ALVES GOIAS<br>
