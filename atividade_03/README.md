@@ -56,8 +56,8 @@ Na linha 71, foi implementado um sistema de resfriamento da temperatura em funç
 
 ### 2.2.1. Encontrando a temperatura ideal para o *stop*
 
-*descrever testes feitos diminuindo o threshold que para o experimento até que o experimento comecasse a achar o mínimo global*;
+Para conseguirmos ter um controle melhor do experimento, o primeiro passo foi procurar um valor ideal para ser o threshold responsável por parar a execução do algoritmo, isto é, o valor do qual, se a temperatura fosse menor que, então se encerrava o experimento. O valor que cumpriu melhor esse papel foi 1e-8, pois a partir desse valor, não foi raro ver experimentos conseguindo alcancar o ponto ótimo global. Com esse número em mãos, começamos então a analisar os efeitos das variáveis de controle do algoritmo nos resultados.
 
 ### 2.2.2. Efeito da temperatura
 
-*descrever e comparar experimentos rodando o código com temperatura = 1 e temperatura = 10*
+Infelizmente não conseguimos estruturar o csv que o NetLogo devolve dentro do BehaviourSpace (ferramenta de testes exaustivos). Porém conseguimos ver, em 100 experimentos com uma temperatura 1 e 100 experimentos com uma temperatura 10, que os experimentos de maior temperatura inicial possuem uma dificuldade maior de encontrar um ótimo global. Isso se dá pelo fato de mesmo quando o algoritmo já avançou bastante em direção ao objetivo, muitas permutações são realizadas no sentido contrário, uma vez que a temperatura ainda está alta. Ou seja, quanto maior a temperatura, maior o tempo que o algoritmo demora para encontrar a solução ótima global. Também experimentamos com a cooling-rate, que define a função de esfriamento da temperatura. Constatamos que com uma cooling-rate maior, a temperatura chega a zero muito rápido, e isso impede o algoritmo de achar o ótimo global. Por isso uma cooling-rate menor, apesar de fazer com que a temperatura fique alta por mais tempo, também permite que o algoritmo seja executado tempo suficiente para conseguir achar a solução do problema.
