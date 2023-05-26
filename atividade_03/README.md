@@ -35,7 +35,7 @@ O Simulated Annealing é um algoritmo de otimização que se inspira no processo
 
 ## 2.1. Alterações no código fornecido
 
-.
+Na linha 71, foi implementado um sistema de resfriamento da temperatura em função da variável cooling-rate (definida pelo usuário). Também foi adicionado um critério de parada definitivo na linha 79, terminando a execução caso a temperatura alcance valores menores do que 1e-8 antes de a solução ótima ser encontrada. Além disso, o método accept-swap foi desenvolvido (linhas 142~152), aceitando uma mudança de estado caso a energia nova seja menor do que a anterior ou um critério dependente da temperatura seja alcançado (quanto maior a temperatura, mais facilmente a mudança será aceita).
 
 ## 2.2. Experimentos
 
