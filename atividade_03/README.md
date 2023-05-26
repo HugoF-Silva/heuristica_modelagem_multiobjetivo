@@ -25,10 +25,6 @@ considerando em quais casos foi obtida a solução ótima, quantidade de estados
 necessários para obter o melhor resultado em média. Teste várias vezes o algoritmo
 para cada uma das quantidades de agentes.*
 
-### 1.2.2. Efeito da temperatura
-
-*descrever e comparar experimentos rodando o código com temperatura = 1 e temperatura = 10*
-
 # 2. Simulated Annealing
 
 O Simulated Annealing é um algoritmo de otimização que se inspira no processo de recozimento de metais para resolver problemas complexos. Sua abordagem consiste em explorar diferentes soluções em um espaço de busca, fazendo pequenas alterações em uma solução inicial. O algoritmo permite, em estágios iniciais, aceitar movimentos para soluções piores, o que ajuda a evitar mínimos locais e explorar regiões do espaço de busca que poderiam levar a uma solução melhor. À medida que a temperatura diminui gradualmente, a probabilidade de aceitar soluções piores também diminui, o que permite ao algoritmo convergir para uma solução ótima ou próxima dela. Essa técnica flexível e eficaz tem sido amplamente aplicada em áreas como engenharia, ciência da computação e logística, para resolver problemas desafiadores de roteamento, escalonamento, planejamento e design, entre outros.
