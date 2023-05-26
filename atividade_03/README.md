@@ -18,12 +18,31 @@ Foi desenvolvida para essa atividade o bloco de código responsável pela coleta
 
 ## 1.2. Experimentos
 
-### 1.2.1. Testes realizados com quantidades diferentes de agentes
+Foram feitos experimentos com diferentes números de agentes (2, 5, 10 e 15 agentes), realizando 200 iterações para cada número de agentes:
 
-*Teste o algoritmo com 2, 5, 10 e 15 agentes. Compare os resultados obtidos
-considerando em quais casos foi obtida a solução ótima, quantidade de estados
-necessários para obter o melhor resultado em média. Teste várias vezes o algoritmo
-para cada uma das quantidades de agentes.*
+### 1.2.1 Número de estados explorados
+
+![Gráfico de número de estados por número de agentes](https://github.com/HugoF-Silva/heuristica_modelagem_multiobjetivo/blob/main/atividade_03/images/01.png?raw=true)
+
+Considerando os resultados do experimento, podemos observar que o número de estados explorados cresce de acordo com o número de agentes no ambiente. Isso faz com que a probabilidade de o algoritmo encontrar um ótimo global aumente, uma vez que ele vai explorar mais estados.
+
+### 1.2.2 Altura máxima alcançada
+
+![Gráfico de altura máxima encontrada por número de agentes](https://github.com/HugoF-Silva/heuristica_modelagem_multiobjetivo/blob/main/atividade_03/images/02.png?raw=true)
+
+Assim como no experimento anterior, a altura máxima encontrada cresce de acordo com o número de agentes do ambiente. Isso acontece porque com mais agentes, é possível explorar mais estados, aumentando a chance de encontrar alturas maiores (máximos locais).
+
+### 1.2.3 Altura máxima possível
+
+![Gráfico de altura possível do ambiente por número de agentes](https://github.com/HugoF-Silva/heuristica_modelagem_multiobjetivo/blob/main/atividade_03/images/03.png?raw=true)
+
+Nesse experimento, podemos observar uma distribuição semelhante de altura máxima. Isso porque a altura máxima do ambiente independe do número de agentes, sendo gerada randomicamente no início de cada iteração.
+
+### 1.2.4 Porcentagem de casos em que o máximo global foi encontrado
+
+![Gráfico de porcentagem de sucesso por número de agentes](https://github.com/HugoF-Silva/heuristica_modelagem_multiobjetivo/blob/main/atividade_03/images/04.png?raw=true)
+
+Com mais agentes, a porcentagem de sucesso dos agentes aumentou de forma significativamente, triplicando de valor entre 2 e 5 agentes, e dobrando novamente entre 5 e 15 agentes. Ao final do experimento, foi alcançada uma taxa de sucesso de quase 60% com 15 agentes.
 
 # 2. Simulated Annealing
 
