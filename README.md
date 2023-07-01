@@ -12,6 +12,14 @@ Os integrantes do grupo variaram de acordo com a atividade, logo os alunos que c
 |202105858 <br> *MARCELO HENRIQUE LOPES FERREIRA*|   :x:                  |   :curly_loop:   |   :heavy_check_mark:   |   :heavy_check_mark:   |   :heavy_check_mark:   |
 |202105865 <br> *RAFAEL ALVES GOIAS*             |   :heavy_check_mark:   |   :curly_loop:   |   :heavy_check_mark:   |   :heavy_check_mark:   |   :heavy_check_mark:   |
 
+| ALUNO | Atividade 06| 
+|----------|----------|
+|202108075 <br> *ANDRÉ LUIS ARAÚJO DE SOUZA*     |   :heavy_check_mark:   |   
+|202105848 <br> *HUGO FERNANDES SILVA*           |   :heavy_check_mark:   |   
+|202105854 <br> *LUCAS BRANDAO RODRIGUES*        |   :heavy_check_mark:   |   
+|202105858 <br> *MARCELO HENRIQUE LOPES FERREIRA*|   :heavy_check_mark:   |   
+|202105865 <br> *RAFAEL ALVES GOIAS*             |   :heavy_check_mark:   |   
+
 Legenda: <br>
 :heavy_check_mark: *Participou da atividade no nosso grupo;*<br>
 :x: *Não participou da atividade no nosso grupo;*<br>
